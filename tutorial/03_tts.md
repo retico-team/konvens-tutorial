@@ -1,6 +1,6 @@
 # Working with speech synthesis
 
-Retico also comes with modules that perform speech synthesis (or text-to-speech). In this tutorial you are going to use the [retico SpeechBrain TTS](https://github.com/retico-team/speechbraintts) to synthesize text into speech.
+Retico also comes with modules that perform speech synthesis (or text-to-speech). In this tutorial, you will use the [retico SpeechBrain TTS](https://github.com/retico-team/speechbraintts) to synthesize text into speech.
 
 For this, you start with the basic setup of the incremental asr task:
 
@@ -25,16 +25,16 @@ stop(microphone)
 
 ## Adding the SpeechBrain ASR module
 
-In order to synthesize the text that is coming from the asr module, you need to create a speechbraintts module and a speaker module first:
+In order to synthesize the text that is coming from the ASR module, you need to create a speechbraintts module and a speaker module first:
 
 ```python
 tts = modules.SpeechBrainTTSModule(language="en")
 speaker = modules.SpeakerModule(rate=22050)
 ```
 
-The SpeechBrainTTSModule takes a language as an input parameter. Currently, only English (`en`) is available, but in the future more languages will be added. The speaker module needs a sampling rate of `22050`, as that the TTS outputs IUs with that rate.
+The SpeechBrainTTSModule takes a language as an input parameter. Currently, only English (`en`) is available, but in the future, more languages will be added. The speaker module needs a sampling rate of `22050`, as the TTS outputs IUs with that rate.
 
-The SpeechBrainTTSModule uses a caching functionality in order to synthesize text faster if it has already been synthesized. However, because synthesizing speech through a neural network is very time intensive, the process may take multiple seconds. That is why per default, the module is set to only synthesize speech once an utterance is completed and silence is detected.
+The SpeechBrainTTSModule uses a caching functionality in order to synthesize text faster if it has already been synthesized. However, because synthesizing speech through a neural network is very time intensive, the process may take multiple seconds. That is why per default, the module is set only to synthesize speech once an utterance is completed and silence is detected.
 
 ## Connecting the modules
 
