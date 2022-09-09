@@ -31,7 +31,7 @@ These are the steps we will be following in the tutorial:
  1. [Creating a simple echo network](tutorial/01_simple_echo.md)
  2. [Working with an incremental speech recognition](tutorial/02_incremental_asr.md)
  3. [Working with speech synthesis](tutorial/03_tts.md)
- 4. [Adding dialogue management](tutorial/04_dialog_management.md)
+ 4. [Adding dialogue management](tutorial/04_dialogue.md)
 
 **Hands-on Part II**:
 

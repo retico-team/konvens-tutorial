@@ -1,8 +1,8 @@
 # Working with an incremental speech recognition
 
-Retico comes with modules that perform incremental speech recognition. The [retico GoogleASR](https://github.com/retico-team/retico-googleasr) module provides a fast speech recognition in the form of a cloud based service. However, using this module requires a google account with payment enabled. That is why we use the [retico Wav2Vec ASR](https://github.com/retico-team/retico-wav2vecasr) module that uses deep learning to translate the speech into text.
+Retico comes with modules that perform incremental speech recognition. The [retico GoogleASR](https://github.com/retico-team/retico-googleasr) module provides a fast speech recognition in the form of a cloud based service. However, using this module requires a google account with payment enabled. That is why you will use the [retico Wav2Vec ASR](https://github.com/retico-team/retico-wav2vecasr) module that uses deep learning to translate the speech into text.
 
-Similar to the echo example, we start by importing retico and creating a microphone module:
+Similar to the echo example, you start by importing retico and creating a microphone module:
 
 ```python
 from retico import *
@@ -10,7 +10,7 @@ from retico import *
 microphone = modules.MicrophoneModule(rate=16000)
 ```
 
-Here, we set the sampling rate to 16 kHz, as the Wav2Vec speech recognition expects this rate. We could set the sampling rate to another value, but the `Wav2VecASRModule` would then convert the audio back to 16 kHz.
+Here, the sampling rate is set to 16 kHz, as the Wav2Vec speech recognition expects this rate. You could set the sampling rate to another value, but the `Wav2VecASRModule` would then convert the audio back to 16 kHz (which takes up slighly more time).
 
 ## Using the Wav2Vec ASR
 
@@ -26,7 +26,7 @@ As Wav2Vec is a large neural network, it takes some time for a prediction to be 
 
 ## Visualizing the result
 
-In order to visualize the output of the Wav2VecASRModule, we need to print out the incremental units the module is producing. For this, a `TextPrinterModule` is available.
+In order to visualize the output of the Wav2VecASRModule, you need to print out the incremental units the module is producing. For this, a `TextPrinterModule` is available.
 
 ```python
 printer = modules.TextPrinterModule()

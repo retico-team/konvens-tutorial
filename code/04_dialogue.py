@@ -2,40 +2,51 @@
 
 from retico import *
 
-msg = []
 
+class WordChangerModule(AbstractModule):
+    @staticmethod
+    def name():
+        return "Word Changer Module"
 
-def word_remover(update_message):
-    global msg
-    for x, ut in update_message:
-        if x.text == "green":
-            x.text = "blue"
-            x.payload = "blue"
-        if ut == UpdateType.ADD:
-            msg.append(x)
-        if ut == UpdateType.REVOKE:
-            msg.remove(x)
-    txt = ""
-    committed = False
-    for x in msg:
-        txt += x.text + " "
-        committed = committed or x.committed
-    print(" " * 100, end="\r")
-    print(f"{txt}", end="\r")
-    if committed:
-        msg = []
-        print("")
+    @staticmethod
+    def description():
+        return "Module that changes specific words."
+
+    @staticmethod
+    def input_ius():
+        return [ius.TextIU]
+
+    @staticmethod
+    def output_iu():
+        return ius.TextIU
+
+    def __init__(self, word_map, **kwargs):
+        super().__init__(**kwargs)
+        self.word_map = word_map
+
+    def process_update(self, update_message):
+        new_update_message = UpdateMessage()
+        for incremental_unit, update_type in update_message:
+            # When the incremental unit is in the list of words
+            if incremental_unit.text in self.word_map.keys():
+                # Replace the text with the respective word
+                incremental_unit.text = self.word_map[incremental_unit.text]
+            # Add incremental unit to the new update message and keep the update type
+            new_update_message.add_iu(incremental_unit, update_type)
+        return new_update_message
 
 
 microphone = modules.MicrophoneModule(rate=16000)
 asr = modules.Wav2VecASRModule(language="en")
-callbackmodule = modules.CallbackModule(word_remover)
+wordchanger = WordChangerModule(word_map={"green": "blue"})
+printer = modules.TextPrinterModule()
 tts = modules.SpeechBrainTTSModule(language="en")
 speaker = modules.SpeakerModule(rate=22050)
 
 microphone.subscribe(asr)
-asr.subscribe(callbackmodule)
-asr.subscribe(tts)
+asr.subscribe(wordchanger)
+wordchanger.subscribe(printer)
+wordchanger.subscribe(tts)
 tts.subscribe(speaker)
 
 run(microphone)

@@ -24,7 +24,7 @@ Retico provides all available incremental modules in the `modules` member for ea
 microphone = modules.MicrophoneModule()
 ```
 
-This creates a microphone with standard settings, such as a `frame_length` of `0.02`, which means that in each incremental unit 20 milliseconds of audio are transmitted. The sampling rate (`rate`) is per default set to `44100` which results in clean fullband audio. The `sample_width` (i.e., the size of one sample of audio in bytes) is set to `2`. These parameters may be changed, but for now we will leave them in the default setting.
+This creates a microphone with standard settings, such as a `frame_length` of `0.02`, which means that in each incremental unit 20 milliseconds of audio are transmitted. The sampling rate (`rate`) is per default set to `44100` which results in clean fullband audio. The `sample_width` (i.e., the size of one sample of audio in bytes) is set to `2`. These parameters may be changed, but for now you can leave them in the default setting.
 
 ## Creating a speaker module
 
@@ -50,7 +50,7 @@ Now, when both modules are being executed, the IUs that the microphone produces 
 
 ## Executing the network
 
-An incremental module can be executed by calling its `run` method and it can be stopped by calling its `stop` method. For our small network, this is very short:
+An incremental module can be executed by calling its `run` method and it can be stopped by calling its `stop` method. For your small network, this is very short:
 
 ```python
 microphone.run()

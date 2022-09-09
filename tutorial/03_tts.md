@@ -1,8 +1,8 @@
 # Working with speech synthesis
 
-Retico also comes with modules that perform speech synthesis (or text-to-speech). In this tutorial we are going to use the [retico SpeechBrain TTS](https://github.com/retico-team/speechbraintts) to synthesize text into speech.
+Retico also comes with modules that perform speech synthesis (or text-to-speech). In this tutorial you are going to use the [retico SpeechBrain TTS](https://github.com/retico-team/speechbraintts) to synthesize text into speech.
 
-For this, we start with the basic setup of the incremental asr task:
+For this, you start with the basic setup of the incremental asr task:
 
 ```python
 
@@ -25,7 +25,7 @@ stop(microphone)
 
 ## Adding the SpeechBrain ASR module
 
-In order to synthesize the text that is coming from the asr module, we need to create a speechbraintts module and a speaker module first:
+In order to synthesize the text that is coming from the asr module, you need to create a speechbraintts module and a speaker module first:
 
 ```python
 tts = modules.SpeechBrainTTSModule(language="en")
@@ -54,3 +54,7 @@ When the network is executed, the speech will be recognized and displayed by the
 ## Exercises for you
 
 - If your device is capable enough, try setting the `dispatch_on_finish` flag of the SpeechBrainTTSModule to `False`. This will incrementally generate the speech while you are still uttering the sentence. This might add some artifacts to the speech and works best on longer sentences.
+
+---
+
+[Next step: Adding dialogue management](04_dialogue.md)
