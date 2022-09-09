@@ -52,7 +52,7 @@ class TranslationModule(AbstractModule):
         pass
 ```
 
-In this code, the module already has it's four mandatory static methods `name`, `description`, `input_ius` and `output_iu`. The module takes TextIUs as an input and also produces TextIUs as an output. Also, in the initializer of the module, a translater is initialized that translates text from English to German (you can, of course, change that to another available language combination).
+In this code, the module already has it's four mandatory static methods `name`, `description`, `input_ius` and `output_iu`. The module takes TextIUs as an input and also produces TextIUs as an output. Also, in the initializer of the module, a translator is initialized that translates text from English to German (you can, of course, change that to another available language combination).
 
 The `process_update` method will be the difficult part of this module, so you can leave it empty for now to build it up step by step.
 
