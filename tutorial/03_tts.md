@@ -1,6 +1,6 @@
 # Working with speech synthesis
 
-Retico also comes with modules that perform speech synthesis (or text-to-speech). In this tutorial, you will use the [retico SpeechBrain TTS](https://github.com/retico-team/speechbraintts) to synthesize text into speech.
+Retico also comes with modules that perform speech synthesis (or text-to-speech). In this tutorial, you will use the [retico SpeechBrain TTS](https://github.com/retico-team/retico-speechbraintts) to synthesize text into speech.
 
 For this, you start with the basic setup of the incremental asr task:
 
